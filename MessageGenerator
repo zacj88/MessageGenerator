@@ -1,7 +1,7 @@
 //New project creating a random generated message.
 const destination = ['Scotland', 'England', 'Spain', 'China', 'America', 'Canada', 'Australia'];
 const scene = ['countryside', 'beach', 'city', 'lake', 'mountains']; 
-const activiy = ['site-seeing', 'partying', 'playing sports', 'relaxing']; 
+const activiy = ['site-seeing', 'partying', 'playing sports', 'relaxing', 'taking in the culture']; 
 
 const desitnationGenerator = (arr) => {
     
@@ -24,7 +24,9 @@ const activityGenerator = (arr) => {
  
 const makeSentence = (arr1, arr2, arr3) => {
 
-    return `You will be going to the ${sceneGenerator(arr1)} in ${desitnationGenerator(arr2)}, and you will be ${activityGenerator(arr3)}`;
+    return `The holiday generator has 
+    chosen for you to go to the ${sceneGenerator(arr1)} in ${desitnationGenerator(arr2)},
+    and you will be ${activityGenerator(arr3)}`;
 
 }
 
