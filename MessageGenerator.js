@@ -1,33 +1,39 @@
 //New project creating a random generated message.
-const destination = ['Scotland', 'England', 'Spain', 'China', 'America', 'Canada', 'Australia'];
-const scene = ['countryside', 'beach', 'city', 'lake', 'mountains']; 
-const activiy = ['site-seeing', 'partying', 'playing sports', 'relaxing', 'taking in the culture']; 
-
-const desitnationGenerator = (arr) => {
-    
-    let item1 = arr[Math.floor(Math.random() * arr.length)];
-    return item1;
+const holiday = {
+    destination: ['Scotland', 'England', 'Spain', 'China', 'America', 'Canada', 'Australia'],
+    scene: ['countryside', 'beach', 'city', 'lakes', 'mountains'],
+    activity: ['site-seeing', 'partying', 'playing sports', 'relaxing', 'taking in the culture']
 }
 
-const sceneGenerator = (arr) => {
-    
-    let item1 = arr[Math.floor(Math.random() * arr.length)];
-    return item1;
+const randomNum = (num) => {
+    return [Math.floor(Math.random() * num)];
 }
 
-const activityGenerator = (arr) => {
-    
-    let item1 = arr[Math.floor(Math.random() * arr.length)];
-    return item1;
-}
+const holidayGenerator = () => {
+    let holidayIdea = []; 
 
+    for (let prop in holiday){
+        let index = randomNum(holiday[prop].length)
+
+        switch(prop) {
+
+            case 'destination':
+                holidayIdea.push(`The holiday generator has chosen for you to go to ${holiday[prop][index]}. `)
+                break
+            case 'scene':
+                holidayIdea.push(`It believes that the best place to go in this country is the ${holiday[prop][index]}, `)
+                break
+            case 'activity':
+                holidayIdea.push(`while there you will be ${holiday[prop][index]}......Enjoy!`)
+                break
+            default:
+                holidayIdea.push("something appears to have gone wrong...looks like there is not holiday for you :(")
+
+        }
+    }
  
-const makeSentence = (arr1, arr2, arr3) => {
-
-    return `The holiday generator has 
-    chosen for you to go to the ${sceneGenerator(arr1)} in ${desitnationGenerator(arr2)},
-    and you will be ${activityGenerator(arr3)}`;
-
+    let Sentence = holidayIdea.join("");
+    return Sentence
 }
 
-console.log(makeSentence(scene, destination, activiy));
+console.log(holidayGenerator());
